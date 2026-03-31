@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Formulario from "./components/Formulario";
 import Listado from "./components/Listado";
+import SectionTitle from "./components/SectionTitle";
 import "./App.css";
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
 
   return (
     <div className="container">
-      <h1>ADMINISTRADOR DE PACIENTES</h1>
+      <SectionTitle level={1}>ADMINISTRADOR DE PACIENTES</SectionTitle>
 
       <div className="contenido">
         <Formulario />

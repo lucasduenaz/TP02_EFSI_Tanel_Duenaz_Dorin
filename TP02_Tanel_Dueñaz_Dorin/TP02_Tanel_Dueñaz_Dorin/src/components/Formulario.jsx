@@ -1,16 +1,17 @@
 import "./Formulario.css";
+import SectionTitle from "./SectionTitle";
+import FormInput from "./FormInput";
 
 function Formulario() {
   return (
     <div className="formulario">
-      <h2>CREAR MI CITA</h2>
+      <SectionTitle level={2}>CREAR MI CITA</SectionTitle>
 
-      <input placeholder="Nombre Mascota" />
-      <input placeholder="Nombre dueño de la mascota" />
-      <input type="date" />
-      <input type="time" />
-      <textarea placeholder="Sintomas"></textarea>
-      
+      <FormInput placeholder="Nombre Mascota" />
+      <FormInput placeholder="Nombre dueño de la mascota" />
+      <FormInput type="date" />
+      <FormInput type="time" />
+      <FormInput type="textarea" placeholder="Sintomas" />
 
       <button>AGREGAR CITA</button>
     </div>

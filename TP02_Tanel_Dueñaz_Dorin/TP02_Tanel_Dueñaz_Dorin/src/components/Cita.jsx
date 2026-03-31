@@ -1,13 +1,14 @@
 import "./Cita.css";
+import CitaField from "./CitaField";
 
 function Cita({ cita }) {
   return (
     <div className="cita">
-      <p><span>Mascota:</span> {cita.mascota}</p>
-      <p><span>Dueño:</span> {cita.dueño}</p>
-      <p><span>Fecha:</span> {cita.fecha}</p>
-      <p><span>Hora:</span> {cita.hora}</p>
-      <p><span>Sintomas:</span> {cita.sintomas}</p>
+      <CitaField label="Mascota" value={cita.mascota} />
+      <CitaField label="Dueño" value={cita.dueño} />
+      <CitaField label="Fecha" value={cita.fecha} />
+      <CitaField label="Hora" value={cita.hora} />
+      <CitaField label="Sintomas" value={cita.sintomas} />
 
       <button>ELIMINAR ×</button>
     </div>
