@@ -1,20 +1,22 @@
 import Cita from "./Cita";
-import SectionTitle from "./SectionTitle";
-import "./Listado.css";
 
 function Listado({ citas, eliminarCita }) {
   return (
-    <div className="listado">
-      <SectionTitle level={2}>ADMINISTRA TUS CITAS</SectionTitle>
+    <div className="one-half column">
+      <h2>Administra tus citas</h2>
 
-      {citas.map((cita, index) => (
-        <Cita
-          key={index}
-          cita={cita}
-          index={index}
-          eliminarCita={eliminarCita}
-        />
-      ))}
+      {citas.length === 0 ? (
+        <p style={{ color: "white" }}>No hay citas</p>
+      ) : (
+        citas.map((cita, index) => (
+          <Cita
+            key={index}
+            cita={cita}
+            index={index}
+            eliminarCita={eliminarCita}
+          />
+        ))
+      )}
     </div>
   );
 }

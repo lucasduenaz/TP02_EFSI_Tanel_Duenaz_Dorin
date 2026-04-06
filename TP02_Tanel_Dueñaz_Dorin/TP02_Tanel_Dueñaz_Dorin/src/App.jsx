@@ -1,19 +1,9 @@
 import { useState } from "react";
 import Formulario from "./components/Formulario";
 import Listado from "./components/Listado";
-import SectionTitle from "./components/SectionTitle";
-import "./App.css";
 
 function App() {
-  const [citas, setCitas] = useState([
-    {
-      mascota: "Nina",
-      dueño: "Martin",
-      fecha: "2021-08-05",
-      hora: "08:20",
-      sintomas: "Le duele la pierna",
-    },
-  ]);
+  const [citas, setCitas] = useState([]);
 
   const agregarCita = (cita) => {
     setCitas([...citas, cita]);
@@ -24,14 +14,16 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <SectionTitle level={1}>ADMINISTRADOR DE PACIENTES</SectionTitle>
+    <>
+      <h1>ADMINISTRADOR DE PACIENTES</h1>
 
-      <div className="contenido">
-        <Formulario agregarCita={agregarCita} />
-        <Listado citas={citas} eliminarCita={eliminarCita} />
+      <div className="container">
+        <div className="row">
+          <Formulario agregarCita={agregarCita} />
+          <Listado citas={citas} eliminarCita={eliminarCita} />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

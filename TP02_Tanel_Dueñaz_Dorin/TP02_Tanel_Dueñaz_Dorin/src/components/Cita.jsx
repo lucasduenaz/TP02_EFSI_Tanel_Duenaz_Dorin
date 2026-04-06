@@ -1,16 +1,17 @@
-import "./Cita.css";
-
 function Cita({ cita, index, eliminarCita }) {
   return (
     <div className="cita">
-      <p><span>Mascota:</span> {cita.mascota}</p>
-      <p><span>Dueño:</span> {cita.dueño}</p>
-      <p><span>Fecha:</span> {cita.fecha}</p>
-      <p><span>Hora:</span> {cita.hora}</p>
-      <p><span>Sintomas:</span> {cita.sintomas}</p>
+      <p>Mascota: <span>{cita.mascota}</span></p>
+      <p>Dueño: <span>{cita.propietario}</span></p>
+      <p>Fecha: <span>{cita.fecha}</span></p>
+      <p>Hora: <span>{cita.hora}</span></p>
+      <p>Sintomas: <span>{cita.sintomas}</span></p>
 
-      <button onClick={() => eliminarCita(index)}>
-        ELIMINAR ×
+      <button
+        className="button eliminar u-full-width"
+        onClick={() => eliminarCita(index)}
+      >
+        Eliminar ×
       </button>
     </div>
   );

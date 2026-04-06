@@ -1,42 +1,36 @@
 import { useState } from "react";
-import "./Formulario.css";
-import SectionTitle from "./SectionTitle";
 
 function Formulario({ agregarCita }) {
-  const [cita, setCita] = useState({
+  const [form, setForm] = useState({
     mascota: "",
-    dueño: "",
+    propietario: "",
     fecha: "",
     hora: "",
     sintomas: "",
   });
 
   const handleChange = (e) => {
-    setCita({
-      ...cita,
+    setForm({
+      ...form,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = (e) => {
+  const submit = (e) => {
     e.preventDefault();
 
     if (
-      cita.mascota === "" ||
-      cita.dueño === "" ||
-      cita.fecha === "" ||
-      cita.hora === "" ||
-      cita.sintomas === ""
+      Object.values(form).some((v) => v === "")
     ) {
       alert("Todos los campos son obligatorios");
       return;
     }
 
-    agregarCita(cita);
+    agregarCita(form);
 
-    setCita({
+    setForm({
       mascota: "",
-      dueño: "",
+      propietario: "",
       fecha: "",
       hora: "",
       sintomas: "",
@@ -44,23 +38,27 @@ function Formulario({ agregarCita }) {
   };
 
   return (
-    <div className="formulario">
-      <SectionTitle level={2}>CREAR MI CITA</SectionTitle>
+    <div className="one-half column">
+      <h2>Crear mi Cita</h2>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={submit}>
         <label>Nombre Mascota</label>
         <input
           type="text"
           name="mascota"
-          value={cita.mascota}
+          className="u-full-width"
+          placeholder="Nombre Mascota"
+          value={form.mascota}
           onChange={handleChange}
         />
 
         <label>Nombre Dueño</label>
         <input
           type="text"
-          name="dueño"
-          value={cita.dueño}
+          name="propietario"
+          className="u-full-width"
+          placeholder="Nombre dueño de la mascota"
+          value={form.propietario}
           onChange={handleChange}
         />
 
@@ -68,7 +66,8 @@ function Formulario({ agregarCita }) {
         <input
           type="date"
           name="fecha"
-          value={cita.fecha}
+          className="u-full-width"
+          value={form.fecha}
           onChange={handleChange}
         />
 
@@ -76,18 +75,22 @@ function Formulario({ agregarCita }) {
         <input
           type="time"
           name="hora"
-          value={cita.hora}
+          className="u-full-width"
+          value={form.hora}
           onChange={handleChange}
         />
 
         <label>Sintomas</label>
         <textarea
           name="sintomas"
-          value={cita.sintomas}
+          className="u-full-width"
+          value={form.sintomas}
           onChange={handleChange}
         ></textarea>
 
-        <button type="submit">AGREGAR CITA</button>
+        <button type="submit" className="u-full-width button-primary">
+          Agregar Cita
+        </button>
       </form>
     </div>
   );
